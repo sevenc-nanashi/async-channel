@@ -98,7 +98,7 @@ export class UnboundedChannel<T> {
   }
 
   /** Alias for {@link drain}. */
-  [Symbol.asyncIterator]() {
+  [Symbol.asyncIterator](): AsyncGenerator<T, void, void> {
     return this.drain();
   }
 }
