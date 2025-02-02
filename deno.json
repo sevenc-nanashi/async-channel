@@ -1,5 +1,5 @@
 {
-  "name": "@sevenc-nanashi/js-channel",
+  "name": "@sevenc-nanashi/async-channel",
   "version": "0.1.0",
   "exports": "./mod.ts",
   "tasks": {
