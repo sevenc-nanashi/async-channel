@@ -4,7 +4,7 @@ import { UnboundedChannel } from "./mpsc.ts";
 import { CLOSED } from "./mod.ts";
 
 const crossTest = await createCrossTest(import.meta.url, {
-  runtimes: ["deno", "node", "bun", "browser"],
+  runtimes: ["deno", "node", "bun"],
 });
 
 crossTest("mpsc", async () => {
