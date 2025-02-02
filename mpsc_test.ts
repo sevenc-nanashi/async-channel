@@ -1,7 +1,6 @@
 import { assertEquals } from "@std/assert";
 import { createCrossTest } from "@sevenc-nanashi/cross-test";
 import { UnboundedChannel } from "./mpsc.ts";
-import { CLOSED } from "./mod.ts";
 
 const crossTest = await createCrossTest(import.meta.url, {
   runtimes: ["deno", "node", "bun"],
@@ -21,9 +20,6 @@ crossTest("mpsc", async () => {
 
   const receive = async () => {
     for await (const value of channel) {
-      if (value === CLOSED) {
-        break;
-      }
       received.push(value);
     }
   };

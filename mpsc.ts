@@ -86,16 +86,19 @@ export class UnboundedChannel<T> {
     return this.#queue.length === 0;
   }
 
-  /** Returns an async iterator that can be used to receive values from the channel in a for-await-of loop. */
-  [Symbol.asyncIterator](): AsyncIterator<T | typeof CLOSED> {
-    return {
-      next: async () => {
-        const received = await this.receive();
-        return {
-          done: received === CLOSED,
-          value: received,
-        };
-      },
-    };
+  /** Returns an async generator that can be used to receive values from the channel. */
+  async *drain(): AsyncGenerator<T, void, void> {
+    while (true) {
+      const received = await this.receive();
+      if (received === CLOSED) {
+        break;
+      }
+      yield received;
+    }
+  }
+
+  /** Alias for {@link drain}. */
+  [Symbol.asyncIterator]() {
+    return this.drain();
   }
 }
