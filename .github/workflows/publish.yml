@@ -1,0 +1,39 @@
+name: Publish
+
+on:
+  push:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Lint
+        run: |
+          deno lint
+          deno fmt --check
+      - name: Run test
+        run: |
+          deno test -A
+      - name: Publish
+        if: github.ref == 'refs/heads/main'
+        run: |
+          deno publish
