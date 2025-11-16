@@ -1,6 +1,6 @@
 # async-channel
 
-[![JSR](https://jsr.io/badges/@sevenc-nanashi/async-channel)](https://jsr.io/@sevenc-nanashi/async-channel)
+[![JSR](https://jsr.io/badges/@sevenc-nanashi/async-channel)](https://jsr.io/@sevenc-nanashi/async-channel)  
 Simple async channel implementation for TypeScript.
 
 ## Installation
