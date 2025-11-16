@@ -1,6 +1,6 @@
 {
   "name": "@sevenc-nanashi/async-channel",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "exports": "./mod.ts",
   "tasks": {
     "dev": "deno test --watch mod.ts"
