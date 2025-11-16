@@ -10,4 +10,4 @@ export class ClosedChannelError extends Error {
 }
 
 export { UnboundedChannel } from "./mpsc.ts";
-export { UnboundedMultiChannel, MultiChannelReceiver } from "./mpmc.ts";
+export { MultiChannelReceiver, UnboundedMultiChannel } from "./mpmc.ts";
