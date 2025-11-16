@@ -23,7 +23,10 @@ bunx jsr add @sevenc-nanashi/async-channel
 
 ## Usage
 
-Please check [./mpsc_test.ts](./mpsc_test.ts) for a simple example.
+- MPSC (multi-producer single-consumer): see `mpsc.ts` and
+  [./mpsc_test.ts](./mpsc_test.ts).
+- MPMC (multi-producer multi-consumer): see `mpmc.ts` and
+  [./mpmc_test.ts](./mpmc_test.ts).
 
 ## License
 
